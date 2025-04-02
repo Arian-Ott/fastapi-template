@@ -1,0 +1,28 @@
+services:
+  db:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_name
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+  api:
+    build: .
+    restart: always
+    container_name: aaas_api
+    depends_on:
+      - db
+    ports:
+      - "56789:5000"
+    env_file:
+      - .env
+
+volumes:
+  db_data:
+ 

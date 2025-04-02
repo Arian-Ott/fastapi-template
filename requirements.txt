@@ -1,0 +1,12 @@
+pytest
+pytest-cov
+black
+fastapi[all]
+uvicorn
+coverage
+sqlalchemy
+pymysql
+requests
+ruff
+pylint
+python-dotenv
