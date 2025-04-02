@@ -1,11 +1,12 @@
 name: "🐞 Bug Report"
 description: Report a bug in the FastAPI app
-labels: [bug]
+labels: [bug, needs-triage]
+title: "[BUG] <title>"
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for reporting a bug! Please provide as much detail as possible.
+        Thanks for reporting a bug! Please provide as much detail as possible to help us investigate.
 
   - type: input
     id: python_version
@@ -20,9 +21,9 @@ body:
     attributes:
       label: Operating System
       options:
-        - Linux
-        - macOS
         - Windows
+        - macOS
+        - Linux/Unix
         - Other
     validations:
       required: true
@@ -35,11 +36,27 @@ body:
     validations:
       required: true
 
+  - type: input
+    id: fastapi_addons
+    attributes:
+      label: FastAPI Add-ons (if any)
+      placeholder: "e.g. fastapi-users, fastapi-sqlalchemy"
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependency Versions
+      description: If possible, paste the output of `pip freeze` or list key package versions.
+      placeholder: |
+        fastapi==0.110.0
+        pydantic==2.5.3
+        uvicorn==0.23.2
+
   - type: textarea
     id: description
     attributes:
       label: Bug Description
-      description: What happened? What did you expect to happen?
+      description: What is the bug? What did you expect to happen instead?
       placeholder: "When I send a POST to /users, I get a 500 instead of a 201..."
     validations:
       required: true
@@ -57,8 +74,38 @@ body:
       required: true
 
   - type: textarea
+    id: minimal_example
+    attributes:
+      label: Minimal Reproducible Example (optional)
+      description: |
+        Share a minimal FastAPI app that reproduces the issue.
+        This should include only the code necessary to trigger the bug.
+      placeholder: |
+        ```python
+        from fastapi import FastAPI
+
+        app = FastAPI()
+
+        @app.get("/")
+        def read_root():
+            raise RuntimeError("Example bug")
+        ```
+      render: python
+
+  - type: textarea
     id: logs
     attributes:
       label: Relevant Logs / Tracebacks
       description: Paste relevant logs or error messages
       render: shell
+
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Impact of the Bug
+      description: How does this bug affect your work? Please be honest and prioritise the severity.
+      options:
+        - Critical: Blocks all work
+        - Major: Blocks some work
+        - Minor: Annoying but doesn't block work
+        - Trivial: Barely noticeable
