@@ -1,0 +1,16 @@
+name: "❓ Question / Discussion"
+description: Ask a question or start a discussion
+labels: [question]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Need clarification or have a general question? You're in the right place.
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Your question or topic
+      placeholder: "How does dependency injection work for nested routers?"
+    validations:
+      required: true

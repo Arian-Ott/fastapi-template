@@ -1,0 +1,31 @@
+name: "💡 Feature Request"
+description: Suggest an improvement or new feature
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        We welcome ideas for improving this FastAPI project!
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: What problem are you trying to solve?
+      description: Explain the use case or pain point.
+      placeholder: "I want to be able to upload images directly to S3 from the frontend..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Describe the solution you'd like
+      placeholder: "Add an `/upload` endpoint that returns a pre-signed URL..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      placeholder: "I could proxy the upload through the backend, but that adds load."

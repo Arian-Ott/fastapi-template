@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📚 Documentation
+    url: https://fastapi.tiangolo.com/
+    about: Official FastAPI documentation
+  - name: 💬 Discussions
+    url: https://github.com/your-org/your-repo/discussions
+    about: Ask general questions or start a conversation
