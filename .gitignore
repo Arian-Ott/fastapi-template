@@ -12,7 +12,7 @@ venv/
 .idea/
 
 # Docker
-.dockerignore
+
 *.log
 
 # Environment & Secrets
